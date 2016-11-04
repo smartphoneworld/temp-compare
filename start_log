@@ -1,0 +1,288 @@
+Booting Linux on physical CPU 0x0
+Linux version 4.9.78-ti-r94 (root@b2-am57xx-beagle-x15-2gb) (gcc version 6.3.0 20170516 (Debian 6.3.0-18) ) #1 SMP PREEMPT Fri Jan 26 21:26:24 UTC 2018
+CPU: ARMv7 Processor [413fc082] revision 2 (ARMv7), cr=10c5387d
+CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+OF: fdt:Machine model: TI AM335x BeagleBone Black
+cma: Reserved 48 MiB at 0x9c800000
+Memory policy: Data cache writeback
+CPU: All CPU(s) started in SVC mode.
+AM335X ES2.1 (sgx neon)
+percpu: Embedded 15 pages/cpu @df928000 s31884 r8192 d21364 u61440
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 129412
+Kernel command line: console=tty0 console=ttyO0,115200n8 bone_capemgr.disable_partno=BB-BONELT-HDMI,BB-BONELT-HDMIN,BB-SPIDEV0,BB-SPIDEV1,BB-BONE-EMMC-2G bone_capemgr.enable_partno=chai-pcr,CHAI-LCDtouch5 root=/dev/mmcblk1p1 rootfstype=ext4 rootwait 
+PID hash table entries: 2048 (order: 1, 8192 bytes)
+Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+Memory: 446296K/522240K available (12288K kernel code, 1153K rwdata, 4356K rodata, 1024K init, 751K bss, 26792K reserved, 49152K cma-reserved, 0K highmem)
+Virtual kernel memory layout:
+    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+    fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+    vmalloc : 0xe0000000 - 0xff800000   ( 504 MB)
+    lowmem  : 0xc0000000 - 0xdfe00000   ( 510 MB)
+    pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+    modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+      .text : 0xc0008000 - 0xc0d00000   (13280 kB)
+      .init : 0xc1300000 - 0xc1400000   (1024 kB)
+      .data : 0xc1400000 - 0xc1520770   (1154 kB)
+       .bss : 0xc1522000 - 0xc15ddfb0   ( 752 kB)
+Preemptible hierarchical RCU implementation.
+	Build-time adjustment of leaf fanout to 32.
+	RCU restricting CPUs from NR_CPUS=2 to nr_cpu_ids=1.
+RCU: Adjusting geometry for rcu_fanout_leaf=32, nr_cpu_ids=1
+NR_IRQS:16 nr_irqs:16 16
+IRQ: Found an INTC at 0xfa200000 (revision 5.0) with 128 interrupts
+OMAP clockevent source: timer2 at 24000000 Hz
+sched_clock: 32 bits at 24MHz, resolution 41ns, wraps every 89478484971ns
+clocksource: timer1: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 79635851949 ns
+OMAP clocksource: timer1 at 24000000 Hz
+Console: colour dummy device 80x30
+console [tty0] enabled
+WARNING: Your 'console=ttyO0' has been replaced by 'ttyS0'
+This ensures that you still see kernel messages. Please
+update your kernel commandline.
+Calibrating delay loop... 995.32 BogoMIPS (lpj=1990656)
+pid_max: default: 32768 minimum: 301
+Security Framework initialized
+Yama: becoming mindful.
+AppArmor: AppArmor initialized
+Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+CPU: Testing write buffer coherency: ok
+ftrace: allocating 39651 entries in 117 pages
+CPU0: thread -1, cpu 0, socket -1, mpidr 0
+Setting up static identity map for 0x80100000 - 0x80100060
+Brought up 1 CPUs
+SMP: Total of 1 processors activated (995.32 BogoMIPS).
+CPU: All CPU(s) started in SVC mode.
+devtmpfs: initialized
+VFP support v0.3: implementor 41 architecture 3 part 30 variant c rev 3
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+futex hash table entries: 256 (order: 2, 16384 bytes)
+xor: measuring software checksum speed
+   arm4regs  :  1217.000 MB/sec
+   8regs     :  1091.000 MB/sec
+   32regs    :  1088.000 MB/sec
+   neon      :  1658.000 MB/sec
+xor: using function: neon (1658.000 MB/sec)
+pinctrl core: initialized pinctrl subsystem
+NET: Registered protocol family 16
+DMA: preallocated 1024 KiB pool for atomic coherent allocations
+omap_hwmod: debugss: _wait_target_disable failed
+cpuidle: using governor ladder
+cpuidle: using governor menu
+OMAP GPIO hardware version 0.1
+No ATAGs?
+hw-breakpoint: debug architecture 0x4 unsupported.
+omap4_sram_init:Unable to allocate sram needed to handle errata I688
+omap4_sram_init:Unable to get sram pool needed to handle errata I688
+raid6: neonx2   gen()  1894 MB/s
+raid6: neonx2   xor()  1169 MB/s
+raid6: using algorithm neonx2 gen() 1894 MB/s
+raid6: .... xor() 1169 MB/s, rmw enabled
+raid6: using intx1 recovery algorithm
+edma 49000000.edma: TI EDMA DMA engine driver
+SCSI subsystem initialized
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+omap_i2c 44e0b000.i2c: could not find pctldev for node /ocp/l4_wkup@44c00000/scm@210000/pinmux@800/pinmux_i2c0_pins, deferring probe
+omap_i2c 4819c000.i2c: bus 2 rev0.11 at 100 kHz
+media: Linux media interface: v0.10
+Linux video capture interface: v2.00
+pps_core: LinuxPPS API ver. 1 registered
+pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+PTP clock support registered
+omap-mailbox 480c8000.mailbox: omap mailbox rev 0x400
+Advanced Linux Sound Architecture Driver Initialized.
+NetLabel: Initializing
+NetLabel:  domain hash size = 128
+NetLabel:  protocols = UNLABELED CIPSOv4
+NetLabel:  unlabeled traffic allowed by default
+clocksource: Switched to clocksource timer1
+VFS: Disk quotas dquot_6.6.0
+VFS: Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+AppArmor: AppArmor Filesystem Enabled
+NET: Registered protocol family 2
+TCP established hash table entries: 4096 (order: 2, 16384 bytes)
+TCP bind hash table entries: 4096 (order: 3, 32768 bytes)
+TCP: Hash tables configured (established 4096 bind 4096)
+UDP hash table entries: 256 (order: 1, 8192 bytes)
+UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+NET: Registered protocol family 1
+RPC: Registered named UNIX socket transport module.
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+hw perfevents: enabled with armv7_cortex_a8 PMU driver, 5 counters available
+audit: initializing netlink subsys (disabled)
+audit: type=2000 audit(0.812:1): initialized
+workingset: timestamp_bits=14 max_order=17 bucket_order=3
+zbud: loaded
+NFS: Registering the id_resolver key type
+Key type id_resolver registered
+Key type id_legacy registered
+nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+fuse init (API version 7.26)
+orangefs_debugfs_init: called with debug mask: :none: :0:
+orangefs_init: module version upstream loaded
+SGI XFS with ACLs, security attributes, realtime, no debug enabled
+Key type asymmetric registered
+Asymmetric key parser 'x509' registered
+Block layer SCSI generic (bsg) driver version 0.4 loaded (major 245)
+io scheduler noop registered
+io scheduler deadline registered
+io scheduler cfq registered (default)
+pinctrl-single 44e10800.pinmux: 142 pins at pa f9e10800 size 568
+gpio-of-helper ocp:cape-universal: ready
+Serial: 8250/16550 driver, 6 ports, IRQ sharing disabled
+44e09000.serial: ttyS0 at MMIO 0x44e09000 (irq = 158, base_baud = 3000000) is a 8250
+console [ttyS0] enabled
+omap_rng 48310000.rng: OMAP Random Number Generator ver. 20
+[drm] Initialized
+at24 2-0054: 32768 byte 24c256 EEPROM, writable, 1 bytes/write
+at24 2-0055: 32768 byte 24c256 EEPROM, writable, 1 bytes/write
+at24 2-0056: 32768 byte 24c256 EEPROM, writable, 1 bytes/write
+at24 2-0057: 32768 byte 24c256 EEPROM, writable, 1 bytes/write
+libphy: Fixed MDIO Bus: probed
+CAN device driver interface
+davinci_mdio 4a101000.mdio: davinci mdio revision 1.6
+davinci_mdio 4a101000.mdio: detected phy mask fffffffe
+davinci_mdio: dt: updated phy_id[0] from phy_mask[fffffffe]
+libphy: 4a101000.mdio: probed
+davinci_mdio 4a101000.mdio: phy[0]: device 4a101000.mdio:00, driver SMSC LAN8710/LAN8720
+cpsw 4a100000.ethernet: Detected MACID = 38:d2:69:96:ec:db
+cpsw 4a100000.ethernet: cpts: overflow check period 1250 (jiffies)
+ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+ehci-pci: EHCI PCI platform driver
+ehci-platform: EHCI generic platform driver
+ehci-omap: OMAP-EHCI Host Controller driver
+usbcore: registered new interface driver usb-storage
+47401300.usb-phy supply vcc not found, using dummy regulator
+47401b00.usb-phy supply vcc not found, using dummy regulator
+musb-hdrc musb-hdrc.1: MUSB HDRC host driver
+musb-hdrc musb-hdrc.1: new USB bus registered, assigned bus number 1
+usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+usb usb1: Product: MUSB HDRC host driver
+usb usb1: Manufacturer: Linux 4.9.78-ti-r94 musb-hcd
+usb usb1: SerialNumber: musb-hdrc.1
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 1 port detected
+omap_rtc 44e3e000.rtc: rtc core: registered 44e3e000.rtc as rtc0
+i2c /dev entries driver
+omap_wdt: OMAP Watchdog Timer Rev 0x01: initial timeout 60 sec
+cpuidle: enable-method property 'ti,am3352' found operations
+omap_hsmmc 48060000.mmc: Got CD GPIO
+random: fast init done
+ledtrig-cpu: registered to indicate activity on CPUs
+omap-aes 53500000.aes: OMAP AES hw accel rev: 3.2
+omap-aes 53500000.aes: will run requests pump with realtime priority
+omap-sham 53100000.sham: hw accel on OMAP rev 4.3
+hidraw: raw HID events driver (C) Jiri Kosina
+usbcore: registered new interface driver usbhid
+usbhid: USB HID core driver
+remoteproc remoteproc0: wkup_m3 is available
+wireguard: WireGuard 0.0.20180118 loaded. See www.wireguard.com for information.
+wireguard: Copyright (C) 2015-2018 Jason A. Donenfeld <Jason@zx2c4.com>. All Rights Reserved.
+NET: Registered protocol family 10
+mip6: Mobile IPv6
+NET: Registered protocol family 17
+can: controller area network core (rev 20120528 abi 9)
+NET: Registered protocol family 29
+Key type dns_resolver registered
+mpls_gso: MPLS GSO support
+ThumbEE CPU extension supported.
+Registering SWP/SWPB emulation handler
+registered taskstats version 1
+zswap: loaded using pool lzo/zbud
+Btrfs loaded, crc32c=crc32c-generic
+mmc0: host does not support reading read-only switch, assuming write-enable
+Key type encrypted registered
+AppArmor: AppArmor sha1 policy hashing enabled
+mmc0: new high speed SDHC card at address aaaa
+mmc1: new high speed MMC card at address 0001
+mmcblk0: mmc0:aaaa SS08G 7.40 GiB 
+ mmcblk0: p1 p2
+mmcblk1: mmc1:0001 M62704 3.56 GiB 
+igin software="rsyslogd" swVersion="8.24.0" x-pid="302" x-info="http://www.rsyslog.com"] start
+mmcblk1boot0: mmc1:0001 M62704 partition 1 2.00 MiB
+mmcblk1boot1: mmc1:0001 M62704 partition 2 2.00 MiB
+ mmcblk1: p1 p2 p3
+input: tps65217_pwr_but as /devices/platform/ocp/44e0b000.i2c/i2c-0/0-0024/tps65217-pwrbutton/input/input0
+tps65217 0-0024: TPS65217 ID 0xe version 1.2
+at24 0-0050: 32768 byte 24c256 EEPROM, writable, 1 bytes/write
+omap_i2c 44e0b000.i2c: bus 0 rev0.11 at 400 kHz
+remoteproc remoteproc0: powering up wkup_m3
+remoteproc remoteproc0: Booting fw image am335x-pm-firmware.elf, size 217148
+remoteproc remoteproc0: remote processor wkup_m3 is now up
+wkup_m3_ipc 44e11324.wkup_m3_ipc: CM3 Firmware Version = 0x192
+bone_capemgr bone_capemgr: Baseboard: 'A335BNLT,00C0,3917BBBK172B'
+bone_capemgr bone_capemgr: compatible-baseboard=ti,beaglebone-black - #slots=4
+bone_capemgr bone_capemgr: enabled_partno PARTNO 'chai-pcr' VER 'N/A' PR '0'
+bone_capemgr bone_capemgr: Using override eeprom data at slot 4
+bone_capemgr bone_capemgr: enabled_partno PARTNO 'CHAI-LCDtouch5' VER 'N/A' PR '0'
+bone_capemgr bone_capemgr: Using override eeprom data at slot 5
+bone_capemgr bone_capemgr: initialized OK.
+PM: bootloader does not support rtc-only!
+omap_rtc 44e3e000.rtc: setting system clock to 2000-01-01 00:00:00 UTC (946684800)
+of_cfs_init
+of_cfs_init: OK
+ALSA device list:
+  No soundcards found.
+EXT4-fs (mmcblk1p1): INFO: recovery required on readonly filesystem
+EXT4-fs (mmcblk1p1): write access will be enabled during recovery
+EXT4-fs (mmcblk1p1): orphan cleanup on readonly fs
+EXT4-fs (mmcblk1p1): 5 orphan inodes deleted
+EXT4-fs (mmcblk1p1): recovery complete
+EXT4-fs (mmcblk1p1): mounted filesystem with ordered data mode. Opts: (null)
+VFS: Mounted root (ext4 filesystem) readonly on device 179:9.
+devtmpfs: mounted
+Freeing unused kernel memory: 1024K
+ip_tables: (C) 2000-2006 Netfilter Core Team
+ocp:backlight supply power not found, using dummy regulator
+pwm-backlight ocp:backlight: invalid default brightness level: 101, using 100
+ti_am3359-tscadc 44e0d000.tscadc: chan 0 step_avg truncating to 16
+ti_am3359-tscadc 44e0d000.tscadc: chan 1 step_avg truncating to 16
+ti_am3359-tscadc 44e0d000.tscadc: chan 2 step_avg truncating to 16
+ti_am3359-tscadc 44e0d000.tscadc: chan 3 step_avg truncating to 16
+ti_am3359-tscadc 44e0d000.tscadc: chan 4 step_avg truncating to 16
+ti_am3359-tscadc 44e0d000.tscadc: chan 5 step_avg truncating to 16
+ti_am3359-tscadc 44e0d000.tscadc: chan 6 step_avg truncating to 16
+bone_capemgr bone_capemgr: slot #4: dtbo 'chai-pcr-00A0.dtbo' loaded; overlay id #1
+panel: probe of ocp:panel failed with error -22
+alloc_contig_range: [9c903, 9c904) PFNs busy
+bone_capemgr bone_capemgr: slot #5: dtbo 'CHAI-LCDtouch5-00A0.dtbo' loaded; overlay id #0
+ft5x0x_ts: loading out-of-tree module taints kernel.
+==ft5x0x_ts_init==
+==ft5x0x_ts_probe=
+==kzalloc=
+input: ft5x0x_ts as /devices/virtual/input/input1
+[FST] FT55x0x Firmware version = 0xc
+==probe over =
+ret=0
+EXT4-fs (mmcblk1p1): re-mounted. Opts: errors=remount-ro
+EXT4-fs (mmcblk1p3): recovery complete
+EXT4-fs (mmcblk1p3): mounted filesystem with ordered data mode. Opts: errors=remount-ro
+EXT4-fs (mmcblk1p2): recovery complete
+EXT4-fs (mmcblk1p2): mounted filesystem with ordered data mode. Opts: errors=remount-ro
+net eth0: initializing cpsw version 1.12 (0)
+cpsw 4a100000.ethernet: initialized cpsw ale version 1.4
+cpsw 4a100000.ethernet: ALE Table size 1024
+SMSC LAN8710/LAN8720 4a101000.mdio:00: attached PHY driver [SMSC LAN8710/LAN8720] (mii_bus:phy_addr=4a101000.mdio:00, irq=-1)
+IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+random: crng init done
+using random self ethernet address
+using random host ethernet address
+using host ethernet address: 38:D2:69:96:EC:DC
+using self ethernet address: 38:D2:69:96:EC:DD
+usb0: HOST MAC 38:d2:69:96:ec:dc
+usb0: MAC 38:d2:69:96:ec:dd
+using random self ethernet address
+using random host ethernet address
+g_ether gadget: Ethernet Gadget, version: Memorial Day 2008
+g_ether gadget: g_ether ready
+IPv6: ADDRCONF(NETDEV_UP): usb0: link is not ready
+cpsw 4a100000.ethernet eth0: Link is Up - 100Mbps/Full - flow control rx/tx
+IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+EXT4-fs (mmcblk0p2): recovery complete
+EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
