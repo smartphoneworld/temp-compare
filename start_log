@@ -75,9 +75,9 @@ No ATAGs?
 hw-breakpoint: debug architecture 0x4 unsupported.
 omap4_sram_init:Unable to allocate sram needed to handle errata I688
 omap4_sram_init:Unable to get sram pool needed to handle errata I688
-raid6: neonx2   gen()  1894 MB/s
+raid6: neonx2   gen()  1895 MB/s
 raid6: neonx2   xor()  1169 MB/s
-raid6: using algorithm neonx2 gen() 1894 MB/s
+raid6: using algorithm neonx2 gen() 1895 MB/s
 raid6: .... xor() 1169 MB/s, rmw enabled
 raid6: using intx1 recovery algorithm
 edma 49000000.edma: TI EDMA DMA engine driver
@@ -134,6 +134,7 @@ io scheduler deadline registered
 io scheduler cfq registered (default)
 pinctrl-single 44e10800.pinmux: 142 pins at pa f9e10800 size 568
 gpio-of-helper ocp:cape-universal: ready
+igin software="rsyslogd" swVersion="8.24.0" x-pid="336" x-info="http://www.rsyslog.com"] start
 Serial: 8250/16550 driver, 6 ports, IRQ sharing disabled
 44e09000.serial: ttyS0 at MMIO 0x44e09000 (irq = 158, base_baud = 3000000) is a 8250
 console [ttyS0] enabled
@@ -168,6 +169,7 @@ usb usb1: Manufacturer: Linux 4.9.78-ti-r94 musb-hcd
 usb usb1: SerialNumber: musb-hdrc.1
 hub 1-0:1.0: USB hub found
 hub 1-0:1.0: 1 port detected
+omap_rtc 44e3e000.rtc: already running
 omap_rtc 44e3e000.rtc: rtc core: registered 44e3e000.rtc as rtc0
 i2c /dev entries driver
 omap_wdt: OMAP Watchdog Timer Rev 0x01: initial timeout 60 sec
@@ -204,7 +206,6 @@ mmc1: new high speed MMC card at address 0001
 mmcblk0: mmc0:aaaa SS08G 7.40 GiB 
  mmcblk0: p1 p2
 mmcblk1: mmc1:0001 M62704 3.56 GiB 
-igin software="rsyslogd" swVersion="8.24.0" x-pid="302" x-info="http://www.rsyslog.com"] start
 mmcblk1boot0: mmc1:0001 M62704 partition 1 2.00 MiB
 mmcblk1boot1: mmc1:0001 M62704 partition 2 2.00 MiB
  mmcblk1: p1 p2 p3
@@ -224,16 +225,11 @@ bone_capemgr bone_capemgr: enabled_partno PARTNO 'CHAI-LCDtouch5' VER 'N/A' PR '
 bone_capemgr bone_capemgr: Using override eeprom data at slot 5
 bone_capemgr bone_capemgr: initialized OK.
 PM: bootloader does not support rtc-only!
-omap_rtc 44e3e000.rtc: setting system clock to 2000-01-01 00:00:00 UTC (946684800)
+omap_rtc 44e3e000.rtc: setting system clock to 2000-01-01 21:35:59 UTC (946762559)
 of_cfs_init
 of_cfs_init: OK
 ALSA device list:
   No soundcards found.
-EXT4-fs (mmcblk1p1): INFO: recovery required on readonly filesystem
-EXT4-fs (mmcblk1p1): write access will be enabled during recovery
-EXT4-fs (mmcblk1p1): orphan cleanup on readonly fs
-EXT4-fs (mmcblk1p1): 5 orphan inodes deleted
-EXT4-fs (mmcblk1p1): recovery complete
 EXT4-fs (mmcblk1p1): mounted filesystem with ordered data mode. Opts: (null)
 VFS: Mounted root (ext4 filesystem) readonly on device 179:9.
 devtmpfs: mounted
@@ -241,6 +237,8 @@ Freeing unused kernel memory: 1024K
 ip_tables: (C) 2000-2006 Netfilter Core Team
 ocp:backlight supply power not found, using dummy regulator
 pwm-backlight ocp:backlight: invalid default brightness level: 101, using 100
+[drm] Supports vblank timestamp caching Rev 2 (21.10.2013).
+[drm] No driver support for vblank timestamp query.
 ti_am3359-tscadc 44e0d000.tscadc: chan 0 step_avg truncating to 16
 ti_am3359-tscadc 44e0d000.tscadc: chan 1 step_avg truncating to 16
 ti_am3359-tscadc 44e0d000.tscadc: chan 2 step_avg truncating to 16
@@ -248,9 +246,56 @@ ti_am3359-tscadc 44e0d000.tscadc: chan 3 step_avg truncating to 16
 ti_am3359-tscadc 44e0d000.tscadc: chan 4 step_avg truncating to 16
 ti_am3359-tscadc 44e0d000.tscadc: chan 5 step_avg truncating to 16
 ti_am3359-tscadc 44e0d000.tscadc: chan 6 step_avg truncating to 16
+Console: switching to colour frame buffer device 100x30
+tilcdc 4830e000.fb: fb0:  frame buffer device
 bone_capemgr bone_capemgr: slot #4: dtbo 'chai-pcr-00A0.dtbo' loaded; overlay id #1
-panel: probe of ocp:panel failed with error -22
-alloc_contig_range: [9c903, 9c904) PFNs busy
+------------[ cut here ]------------
+WARNING: CPU: 0 PID: 110 at arch/arm/mach-omap2/omap_hwmod.c:2136 _enable+0x2c0/0x318
+omap_hwmod: lcdc: enabled state can only be entered from initialized, idle, or disabled state
+Modules linked in: ip_tables x_tables
+CPU: 0 PID: 110 Comm: capemgr-loader- Not tainted 4.9.78-ti-r94 #1
+Hardware name: Generic AM33XX (Flattened Device Tree)
+[<c0114468>] (unwind_backtrace) from [<c010dd20>] (show_stack+0x20/0x24)
+[<c010dd20>] (show_stack) from [<c07449c0>] (dump_stack+0x80/0x94)
+[<c07449c0>] (dump_stack) from [<c013e358>] (__warn+0xf8/0x110)
+[<c013e358>] (__warn) from [<c013e3c8>] (warn_slowpath_fmt+0x58/0x74)
+[<c013e3c8>] (warn_slowpath_fmt) from [<c0129a3c>] (_enable+0x2c0/0x318)
+[<c0129a3c>] (_enable) from [<c012a328>] (omap_hwmod_enable+0x34/0x54)
+[<c012a328>] (omap_hwmod_enable) from [<c012b8e0>] (omap_device_enable+0x50/0x9c)
+[<c012b8e0>] (omap_device_enable) from [<c012b94c>] (_od_runtime_resume+0x20/0x50)
+[<c012b94c>] (_od_runtime_resume) from [<c08df638>] (__rpm_callback+0xd0/0x228)
+[<c08df638>] (__rpm_callback) from [<c08df7c0>] (rpm_callback+0x30/0x90)
+[<c08df7c0>] (rpm_callback) from [<c08df2e4>] (rpm_resume+0x53c/0x74c)
+[<c08df2e4>] (rpm_resume) from [<c08df550>] (__pm_runtime_resume+0x5c/0x74)
+[<c08df550>] (__pm_runtime_resume) from [<c08bc764>] (tilcdc_init.constprop.2+0x250/0x690)
+[<c08bc764>] (tilcdc_init.constprop.2) from [<c08bcc28>] (tilcdc_pdev_probe+0x84/0xa8)
+[<c08bcc28>] (tilcdc_pdev_probe) from [<c08d5070>] (platform_drv_probe+0x60/0xc0)
+[<c08d5070>] (platform_drv_probe) from [<c08d2a50>] (driver_probe_device+0x2b4/0x440)
+[<c08d2a50>] (driver_probe_device) from [<c08d2d9c>] (__device_attach_driver+0xb4/0x128)
+[<c08d2d9c>] (__device_attach_driver) from [<c08d0660>] (bus_for_each_drv+0x84/0xc8)
+[<c08d0660>] (bus_for_each_drv) from [<c08d25fc>] (__device_attach+0xe0/0x168)
+[<c08d25fc>] (__device_attach) from [<c08d2e6c>] (device_initial_probe+0x1c/0x20)
+[<c08d2e6c>] (device_initial_probe) from [<c08d1994>] (bus_probe_device+0x94/0x9c)
+[<c08d1994>] (bus_probe_device) from [<c08cf42c>] (device_add+0x2f8/0x5d0)
+[<c08cf42c>] (device_add) from [<c0af2a28>] (of_device_add+0x44/0x4c)
+[<c0af2a28>] (of_device_add) from [<c0af3140>] (of_platform_device_create_pdata+0x94/0xcc)
+[<c0af3140>] (of_platform_device_create_pdata) from [<c0af32ac>] (of_platform_notify+0x110/0x158)
+[<c0af32ac>] (of_platform_notify) from [<c0163a0c>] (notifier_call_chain+0x54/0x94)
+[<c0163a0c>] (notifier_call_chain) from [<c0163eac>] (__blocking_notifier_call_chain+0x58/0x70)
+[<c0163eac>] (__blocking_notifier_call_chain) from [<c0163eec>] (blocking_notifier_call_chain+0x28/0x30)
+[<c0163eec>] (blocking_notifier_call_chain) from [<c0af48d8>] (of_property_notify+0x7c/0x94)
+[<c0af48d8>] (of_property_notify) from [<c0af495c>] (__of_changeset_entry_notify+0x6c/0xfc)
+[<c0af495c>] (__of_changeset_entry_notify) from [<c0af5520>] (__of_changeset_apply+0x80/0x14c)
+[<c0af5520>] (__of_changeset_apply) from [<c0afbfa8>] (__of_overlay_create+0x780/0x9fc)
+[<c0afbfa8>] (__of_overlay_create) from [<c0afc244>] (of_overlay_create+0x20/0x24)
+[<c0afc244>] (of_overlay_create) from [<c08fefb0>] (capemgr_load_slot+0x480/0x5d0)
+[<c08fefb0>] (capemgr_load_slot) from [<c08ff294>] (capemgr_loader+0x194/0x434)
+[<c08ff294>] (capemgr_loader) from [<c0161f34>] (kthread+0x118/0x130)
+[<c0161f34>] (kthread) from [<c0109050>] (ret_from_fork+0x14/0x24)
+---[ end trace 816fdfd24d3a78ac ]---
+[drm] Supports vblank timestamp caching Rev 2 (21.10.2013).
+[drm] No driver support for vblank timestamp query.
+tilcdc: probe of 4830e000.lcdc failed with error -16
 bone_capemgr bone_capemgr: slot #5: dtbo 'CHAI-LCDtouch5-00A0.dtbo' loaded; overlay id #0
 ft5x0x_ts: loading out-of-tree module taints kernel.
 ==ft5x0x_ts_init==
@@ -261,9 +306,7 @@ input: ft5x0x_ts as /devices/virtual/input/input1
 ==probe over =
 ret=0
 EXT4-fs (mmcblk1p1): re-mounted. Opts: errors=remount-ro
-EXT4-fs (mmcblk1p3): recovery complete
 EXT4-fs (mmcblk1p3): mounted filesystem with ordered data mode. Opts: errors=remount-ro
-EXT4-fs (mmcblk1p2): recovery complete
 EXT4-fs (mmcblk1p2): mounted filesystem with ordered data mode. Opts: errors=remount-ro
 net eth0: initializing cpsw version 1.12 (0)
 cpsw 4a100000.ethernet: initialized cpsw ale version 1.4
@@ -284,5 +327,6 @@ g_ether gadget: g_ether ready
 IPv6: ADDRCONF(NETDEV_UP): usb0: link is not ready
 cpsw 4a100000.ethernet eth0: Link is Up - 100Mbps/Full - flow control rx/tx
 IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
-EXT4-fs (mmcblk0p2): recovery complete
 EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+Adding 1048572k swap on /sdcard/upgrade/swapfile.  Priority:-1 extents:4 across:1687548k SSFS
+igin software="rsyslogd" swVersion="8.24.0" x-pid="336" x-info="http://www.rsyslog.com"] rsyslogd was HUPed
